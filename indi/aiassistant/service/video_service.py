@@ -1,12 +1,13 @@
 # -*- coding: utf-8 -*-
 import cv2
+from flask import current_app
 
 
 enable_server_camera = True
 
 
 def jpg_from_camera() -> bytes:
-    vid = cv2.VideoCapture(0)
+    vid = cv2.VideoCapture(current_app.config.get("CAMERA_ADDRESS"))
     while enable_server_camera:
         success, frame = vid.read()
         if success:

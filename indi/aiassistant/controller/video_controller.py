@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Response
+from flask import Response, stream_with_context
 from flask_ssm.springframework.web.bind.annotation import RequestMapping, RequestMethod, ResponseBody
 from flask_ssm.vo import CommonResult
 from indi.aiassistant.service import video_service
@@ -11,7 +11,7 @@ def server_camera():
     捕获远程摄像头画面\n
     :return: 远程摄像头画面
     """
-    return Response(video_service.jpg_from_camera(), mimetype='multipart/x-mixed-replace; boundary=frame')
+    return Response(stream_with_context(video_service.jpg_from_camera()), mimetype='multipart/x-mixed-replace; boundary=frame')
 
 
 @RequestMapping("/enable_server_camera", method=RequestMethod.POST)

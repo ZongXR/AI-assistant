@@ -3,34 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>AI助手</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <script type="text/javascript" src="js/jquery.min.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/camera.js" charset="utf-8"></script>
+    <script type="text/javascript" src="js/shutdown.js" charset="utf-8"></script>
     <script>
-        /**
-         * 请求按钮的响应函数
-         */
-        function enableServerCamera(dom) {
-            $.ajax({
-                type: "POST",
-                contentType: "application/json;charset=utf-8",
-                dataType: "json",
-                url: "/enable_server_camera",
-                data: JSON.stringify({"enable": $(dom).text() === "开始"} ),
-                success: function (response) {
-                    if (response.data){
-                        $(dom).text("开始");
-                    }else {
-                        $(dom).text("暂停");
-                        window.location.reload("#server_camera");
-                    }
-                },
-                error: function (jqXHR, textStatus, errorThrown) {}
-            });
-        }
+        let shutdownTimeoutId, shutdownIntervalId;
     </script>
 </head>
 <body>
-<h1>Video Streaming Demonstration</h1>
-<img id="server_camera" src="/server_camera" height="500" alt="远程摄像头画面">
-<button onclick="enableServerCamera(this)">暂停</button>
+<div class="item_camera">
+    <h3 id="video_header" class="item_header">远程监控</h3>
+    <div class="toolbar_buttons">
+        <button class="toolbar_button" onclick="enableServerCamera(this)">暂停</button>
+        <button class="toolbar_button" id="btn_shutdown" onclick="shutdown(this)">关机</button>
+    </div>
+    <div class="camera_img"><img id="server_camera" src="/server_camera" height="500" alt="远程摄像头画面"></div>
+</div>
 </body>
 </html>

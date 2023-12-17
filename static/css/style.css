@@ -1,0 +1,43 @@
+.item_camera {
+    text-align: center; /*让div内部文字居中*/
+    background-color: #a17575;
+    background-image: url("../img/waiting.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 427px 113px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.toolbar_button {
+    background-color: #002ead; /* blue */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 5px 1px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10px;
+}
+
+.toolbar_button:hover {
+    background-color: #008CBA;
+    transition: 0.7s;
+}
+
+.toolbar_button:focus {
+    outline-color: transparent;
+    outline-style: solid;
+    box-shadow: 0 0 0 4px #5c5a5c;
+    transition: 0.7s;
+}
+
+.toolbar_button:active {
+    background-color: #ffbf00;
+}
