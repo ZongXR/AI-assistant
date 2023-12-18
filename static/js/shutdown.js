@@ -19,7 +19,7 @@ function shutdown(dom) {
     let url, data;
     if ($("#btn_shutdown").text() === "关机") {
         url = "/shutdown";
-        data = JSON.stringify({"minutes": 55});
+        data = JSON.stringify({"minutes": 60});
     } else {
         url = "/cancel_shutdown";
         data = JSON.stringify({});

@@ -25,3 +25,14 @@ def enable_server_camera(enable: bool):
     result = video_service.enable_server_camera
     video_service.enable_server_camera = enable
     return CommonResult.ok(message="OK", data=result)
+
+
+@RequestMapping("/is_server_camera_enabled", method=RequestMethod.POST)
+@ResponseBody
+def is_server_camera_enabled():
+    """
+    查看远程摄像头是否开启\n
+    :return: 是否开启
+    """
+    result = video_service.enable_server_camera
+    return CommonResult.ok(data=result)

@@ -19,3 +19,24 @@ function enableServerCamera(dom) {
         error: function (jqXHR, textStatus, errorThrown) {}
     });
 }
+
+/**
+ * 设置摄像头的 暂停/开始 按钮
+ */
+const setButtonCameraText = function(){
+    $.ajax({
+        type: "POST",
+        contentType: "application/json;charset=utf-8",
+        dataType: "json",
+        data: JSON.stringify({}),
+        url: "/is_server_camera_enabled",
+        success: function (response) {
+            if (response.data) {
+                $("#btn_camera").text("暂停");
+            } else {
+                $("#btn_camera").text("开始");
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {}
+    });
+}
