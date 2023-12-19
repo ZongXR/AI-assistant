@@ -1,16 +1,19 @@
 .item_camera {
     text-align: center; /*让div内部文字居中*/
     background-color: #a17575;
-    background-image: url("../img/waiting.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 427px 113px;
     margin: auto;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+}
+
+.camera_img {
+    background-image: url("../img/waiting.png");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 427px 113px;
 }
 
 .toolbar_button {
