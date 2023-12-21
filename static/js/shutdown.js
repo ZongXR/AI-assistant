@@ -13,13 +13,22 @@ const changeHeaderText = function (timeout) {
 }
 
 /**
+ * 关闭当前标签页
+ */
+const closeWindow = function(){
+    window.opener = null;
+    window.open('','_self');
+    window.close();
+}
+
+/**
  * 关机
  */
 function shutdown(dom) {
     let url, data;
     if ($("#btn_shutdown").text() === "关机") {
         url = "/shutdown";
-        data = JSON.stringify({"minutes": 60});
+        data = JSON.stringify({"minutes": 0});
     } else {
         url = "/cancel_shutdown";
         data = JSON.stringify({});
@@ -34,7 +43,7 @@ function shutdown(dom) {
             if ($("#btn_shutdown").text() === "关机") {
                 if (response.data >= 0) {
                     shutdownIntervalId = window.setInterval(changeHeaderText, 1000, response.data * 1000);
-                    shutdownTimeoutId = window.setTimeout(function(){window.location.reload();}, response.data * 1000);
+                    shutdownTimeoutId = window.setTimeout(closeWindow, response.data * 1000);
                     $("#btn_shutdown").text("取消关机");
                 } else {
                     console.log(response.data);
