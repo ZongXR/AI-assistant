@@ -16,16 +16,3 @@ def read_temperature(zone: int = 0) -> Optional[float]:
     except FileNotFoundError as e:
         logging.exception(e)
         return None
-
-
-def import_gpio(*packages):
-    """
-    导出gpio模块\n
-    :param: 包名，按优先级降低从前往后写
-    :return: gpio模块
-    """
-    for package in packages:
-        result = try_to_import(package)
-        if result is not None:
-            return result
-    return None

@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 from flask import current_app
-from indi.aiassistant.utils.hardware_utils import import_gpio, read_temperature
+from flask_ssm.utils.module_utils import try_to_import
+from indi.aiassistant.utils.hardware_utils import read_temperature
 
 
-gpio = import_gpio("ASUS.GPIO", "RPi.GPIO")
+gpio = try_to_import("ASUS.GPIO", "RPi.GPIO")
 if gpio is not None:
     gpio.cleanup()
     gpio.setwarnings(True)
@@ -33,6 +34,7 @@ def change_status():
         gpio.output(current_app.config.get("FAN_GPIO"), gpio.LOW)
         current_app.logger.info("小于低温阈值，关闭风扇")
     elif temperature > current_app.config.get("MAX_TEMP"):
+        pwm.start(100)
         gpio.output(current_app.config.get("FAN_GPIO"), gpio.HIGH)
         current_app.logger.info("大于低温阈值，打开风扇")
     else:
