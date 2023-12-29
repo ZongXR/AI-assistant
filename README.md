@@ -53,4 +53,7 @@ sudo nohup python3 /opt/AI-assistant/app.py &
 <tr>
 <td>0.2.0.3</td><td>fix some bugs</td><td>2023年12月29日</td>
 </tr>
+<tr>
+<td>0.2.0.4</td><td>fix some bugs</td><td>2023年12月29日</td>
+</tr>
 </table>
