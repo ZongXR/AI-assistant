@@ -1,4 +1,4 @@
 opencv-python~=4.4.0.40
 Flask~=2.0.1
-Flask-SSM==3.7.2.3
+Flask-SSM==3.7.2.4
 numpy~=1.21.6

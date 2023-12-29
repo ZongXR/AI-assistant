@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
+import sys
 from logging.config import dictConfig
 import os
 
-__path__ = os.getcwd()
+__path__ = os.path.dirname(sys.argv[0])
+
 
 dictConfig({
     "version": 1,

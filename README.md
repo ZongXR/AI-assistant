@@ -11,17 +11,15 @@
 <p>首先安装系统，推荐Debian Buster with Python3.7</p>
 <pre>
 cd /opt
-sudo git clone https://github.com/GoogleLLP/AI-assistant.git
-cd /opt/AI-assistant
+sudo git clone https://github.com/ZongXR/AI-assistant.git
 sudo apt-get install -y libcblas-dev libhdf5-dev libatlas-base-dev
-sudo pip3 install -i https://www.piwheels.org/simple/ -r ./requirements.txt
+sudo pip3 install -i https://www.piwheels.org/simple/ --extra-index-url https://pypi.org/simple -r ./requirements.txt
 </pre>
 <h3>硬件安装</h3>
 <a href="https://blog.bombox.org/2021-08-28/raspberrypi-autofan/" target="_blank"><img src="https://blog.bombox.org/images/post/raspberrypi/fan_wiring.png" alt="硬件安装示意图" width="500"></a><br />
 <h3>启动方式</h3>
 <pre>
-cd /opt/AI-assistant
-sudo nohup python3 ./app.py &
+sudo nohup python3 /opt/AI-assistant/app.py &
 </pre>
 <h2>更新日志</h2>
 <table>
@@ -51,5 +49,8 @@ sudo nohup python3 ./app.py &
 </tr>
 <tr>
 <td>0.2.0.2</td><td>fix some bugs</td><td>2023年12月26日</td>
+</tr>
+<tr>
+<td>0.2.0.3</td><td>fix some bugs</td><td>2023年12月29日</td>
 </tr>
 </table>

@@ -8,10 +8,10 @@
     <script type="text/javascript" src="js/camera.js" charset="utf-8"></script>
     <script type="text/javascript" src="js/shutdown.js" charset="utf-8"></script>
     <script>
-        let shutdownTimeoutId, shutdownIntervalId, setButtonCameraTextIntervalId;
+        let shutdownTimeoutId, shutdownIntervalId, buttonCameraTextIntervalId;
         window.onload = function(){
             setButtonCameraText();                                  // 初始化 暂停/开始 按钮
-            window.setInterval(setButtonCameraText, 60 * 1000);     // 定时更新 暂停/开始 按钮
+            buttonCameraTextIntervalId = window.setInterval(setButtonCameraText, 60 * 1000);     // 定时更新 暂停/开始 按钮
         }
     </script>
 </head>
