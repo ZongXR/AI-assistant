@@ -5,22 +5,40 @@
 <li>调用边缘侧或远程摄像头，将画面投送到浏览器页面上，并进行人脸检测</li>
 <li>控制服务器远程关机，启停摄像头</li>
 <li>实现风扇的温控自动调节</li>
+<li>语音播报本机IP</li>
 </ul>
 <h2>使用方法</h2>
 <h3>软件安装</h3>
-<p>首先安装系统，推荐Debian Buster with Python3.7</p>
+<ul>
+<li>首先安装系统，推荐Debian Buster with Python3.7</li>
+<li>如果使用物理设备直接运行，执行以下命令<br />
 <pre>
+# 准备环境
 cd /opt
 sudo git clone https://github.com/ZongXR/AI-assistant.git
-sudo apt-get install -y libcblas-dev libhdf5-dev libatlas-base-dev
+sudo apt-get install -y libatlas-base-dev
 sudo pip3 install -i https://www.piwheels.org/simple/ --extra-index-url https://pypi.org/simple -r ./requirements.txt
-</pre>
-<h3>硬件安装</h3>
-<a href="https://blog.bombox.org/2021-08-28/raspberrypi-autofan/" target="_blank"><img src="https://blog.bombox.org/images/post/raspberrypi/fan_wiring.png" alt="硬件安装示意图" width="500"></a><br />
-<h3>启动方式</h3>
-<pre>
+# 运行
 sudo nohup python3 /opt/AI-assistant/app.py &
 </pre>
+<li>如果使用docker运行，执行以下命令<br />
+<pre>
+# 准备环境
+sudo mkdir -p /opt/AI-assistant/logs /opt/AI-assistant/config
+docker pull zongxr/AI-assistant:0.2.1.0
+# 运行
+docker run -d -p 80:80 -v /opt/AI-assistant/logs:/opt/logs -v /opt/AI-assistant/config:/opt/indi/aiassistant/config zongxr/AI-assistant:0.2.1.0
+</pre>
+</li>
+</ul>
+<h3>硬件安装</h3>
+<ul>
+<li>推荐使用5V-3A直流电作为输入电源，否则可能因为功率较大而宕机</li>
+<li>
+如果使用树莓派、TinkerBoard等边缘计算设备，可参考<a href="https://blog.bombox.org/2021-08-28/raspberrypi-autofan/" target="_blank">该文章内容</a>安装温控风扇<br />
+<a href="https://blog.bombox.org/2021-08-28/raspberrypi-autofan/" target="_blank"><img src="https://blog.bombox.org/images/post/raspberrypi/fan_wiring.png" alt="硬件安装示意图" width="500"></a>
+</li>
+</ul>
 <h2>更新日志</h2>
 <table>
 <tr>
@@ -55,5 +73,8 @@ sudo nohup python3 /opt/AI-assistant/app.py &
 </tr>
 <tr>
 <td>0.2.0.4</td><td>fix some bugs</td><td>2023年12月29日</td>
+</tr>
+<tr>
+<td>0.2.1.0</td><td>应用启动前语音播报本机IP</td><td>2024年1月3日</td>
 </tr>
 </table>

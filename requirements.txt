@@ -2,3 +2,5 @@ opencv-python~=4.4.0.40
 Flask~=2.0.1
 Flask-SSM==3.7.2.6
 numpy~=1.21.6
+Werkzeug~=2.1.2
+pyttsx3~=2.90
