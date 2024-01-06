@@ -8,7 +8,10 @@ const changeHeaderText = function (timeout) {
     }else{
         let header = $("#video_header").text();
         let seconds = parseInt(header.match("^-?\\d+")[0]);
-        $("#video_header").text((seconds - 1).toString() + "秒后服务器关闭");
+        if (seconds - 1 < 0)
+            window.clearInterval(shutdownIntervalId);
+        else
+            $("#video_header").text((seconds - 1).toString() + "秒后服务器关闭");
     }
 }
 

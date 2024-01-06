@@ -25,9 +25,9 @@ sudo nohup python3 /opt/AI-assistant/app.py &
 <pre>
 # 准备环境
 sudo mkdir -p /opt/AI-assistant/logs /opt/AI-assistant/config
-docker pull zongxr/AI-assistant:0.2.1.0
+docker pull zongxr/AI-assistant:0.2.2.0
 # 运行
-docker run -d -p 80:80 -v /opt/AI-assistant/logs:/opt/logs -v /opt/AI-assistant/config:/opt/indi/aiassistant/config zongxr/AI-assistant:0.2.1.0
+docker run -d -p 80:80 -v /opt/AI-assistant/logs:/opt/logs -v /opt/AI-assistant/config:/opt/indi/aiassistant/config zongxr/AI-assistant:0.2.2.0
 </pre>
 </li>
 </ul>
@@ -76,5 +76,8 @@ docker run -d -p 80:80 -v /opt/AI-assistant/logs:/opt/logs -v /opt/AI-assistant/
 </tr>
 <tr>
 <td>0.2.1.0</td><td>应用启动前语音播报本机IP</td><td>2024年1月3日</td>
+</tr>
+<tr>
+<td>0.2.2.0</td><td>加入人脸编码功能&lpar;需优化&rpar;;&nbsp;修复若干BUG;&nbsp;修复线程安全问题</td><td>2024年1月6日</td>
 </tr>
 </table>

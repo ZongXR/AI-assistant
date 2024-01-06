@@ -4,3 +4,5 @@ Flask-SSM==3.7.2.6
 numpy~=1.21.6
 Werkzeug~=2.1.2
 pyttsx3~=2.90
+tensorflow~=2.10.0;platform_machine != "armv6l" and platform_machine != "armv7l" and platform_machine != "aarch64" and platform_machine != "arm64"
+tflite-runtime~=2.10.0;platform_machine == "armv6l" or platform_machine == "armv7l" or platform_machine == "aarch64" or platform_machine == "arm64"
